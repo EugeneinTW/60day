@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 10: 表單填寫器App - 新手完全指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .section {
+            background: rgba(255,255,255,0.95);
+            margin: 30px 0;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4rem;
+            margin: 25px 0 15px 0;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            overflow-x: auto;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+
+        .code-title {
+            background: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 8px 8px 0 0;
+            font-size: 13px;
+            font-weight: 600;
+            margin: -20px -20px 15px -20px;
+        }
+
+        .beginner-tip {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #2c3e50;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .beginner-tip::before {
+            content: "💡 新手提示：";
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            color: #17a2b8;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 87, 34, 0.1) 100%);
+            border: 2px solid #ff9800;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .warning-box::before {
+            content: "⚠️ 注意：";
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            color: #ff5722;
+        }
+
+        .step-by-step {
+            background: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .what-is-this {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .what-is-this h4 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .simple-explanation {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+        }
+
+        .practice-exercise {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .highlight {
+            background: yellow;
+            padding: 2px 4px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            .header h1 { font-size: 2.2rem; }
+            .section { padding: 20px; }
+            .feature-grid { grid-template-columns: 1fr; }
+        }
+
+        .form-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .comparison-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+        }
+
+        .good-card {
+            border-color: #28a745;
+        }
+
+        .bad-card {
+            border-color: #dc3545;
+        }
+
+        .validation-example {
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, rgba(220, 53, 69, 0.1) 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 標題區域 -->
+        <div class="header">
+            <h1><span class="emoji">📝</span>Day 10: 表單填寫器App</h1>
+            <p>從零開始學習 SwiftUI 表單設計和驗證系統</p>
+            <p style="font-size: 1rem; margin-top: 10px; opacity: 0.8;">新手友善 | 步驟詳細 | 實作導向</p>
+        </div>
+
+        <!-- 開始之前 -->
+        <div class="section">
+            <h2><span class="emoji">🎯</span>開始之前 - 你需要知道的</h2>
+            
+            <h3>這個App會做什麼？</h3>
+            <p>我們要製作一個完整的用戶註冊表單，就像註冊新帳號時填寫的那種表單，可以：</p>
+            <ul style="margin: 15px 0 15px 30px; line-height: 2;">
+                <li>📝 收集用戶基本資料（姓名、信箱、密碼等）</li>
+                <li>🔍 驗證輸入是否正確（格式檢查、必填欄位等）</li>
+                <li>⚠️ 顯示錯誤訊息（告訴用戶哪裡填錯了）</li>
+                <li>📅 選擇生日和其他選項</li>
+                <li>✅ 提交表單並確認成功</li>
+                <li>🔄 清除和重設功能</li>
+            </ul>
+
+            <div class="beginner-tip">
+                表單驗證是 App 開發中非常重要的技能！幾乎每個 App 都需要收集用戶資料，學會這個技巧對你很有用。
+            </div>
+
+            <h3>今天會學到什麼？</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <strong>📋 Form 組件</strong><br>
+                    學會用 Form 建立表單頁面
+                </div>
+                <div class="feature-card">
+                    <strong>✏️ 輸入欄位</strong><br>
+                    TextField、SecureField 等輸入組件
+                </div>
+                <div class="feature-card">
+                    <strong>🔍 表單驗證</strong><br>
+                    檢查用戶輸入是否正確
+                </div>
+                <div class="feature-card">
+                    <strong>⚠️ 錯誤處理</strong><br>
+                    用 Alert 顯示錯誤訊息
+                </div>
+                <div class="feature-card">
+                    <strong>🎛️ 選擇器組件</strong><br>
+                    Picker、DatePicker、Toggle
+                </div>
+                <div class="feature-card">
+                    <strong>💾 資料儲存</strong><br>
+                    用 UserDefaults 保存資料
+                </div>
+            </div>
+        </div>
+
+        <!-- 第一步：理解表單基礎 -->
+        <div class="section">
+            <h2><span class="emoji">📚</span>第一步：理解表單基礎</h2>
+            
+            <div class="what-is-this">
+                <h4>什麼是「表單」？</h4>
+                <p>表單就像紙本的申請表一樣，有很多欄位讓用戶填寫資料。在 SwiftUI 中，Form 組件會自動幫我們排版，讓表單看起來很專業。</p>
+            </div>
+
+            <h3><span class="step-number">1</span>最簡單的表單</h3>
+            <p>讓我們先從最簡單的表單開始：</p>
+
+            <div class="code-block">
+                <div class="code-title">基本表單結構</div>
+Form {
+    Section(header: Text("基本資訊")) {
+        TextField("姓名", text: $name)
+        TextField("電子信箱", text: $email)
+    }
+}
+            </div>
+
+            <div class="simple-explanation">
+                💭 這段程式碼創建了一個有標題的表單區塊，裡面有兩個輸入欄位。
+            </div>
+
+            <h3><span class="step-number">2</span>為什麼需要驗證？</h3>
+            <div class="form-comparison">
+                <div class="comparison-card bad-card">
+                    <h4 style="color: #dc3545;">❌ 沒有驗證的問題</h4>
+                    <ul style="margin-top: 10px; line-height: 1.8;">
+                        <li>用戶可能不填寫必要資料</li>
+                        <li>可能輸入錯誤的信箱格式</li>
+                        <li>密碼可能太簡單</li>
+                        <li>年齡可能不合理</li>
+                    </ul>
+                </div>
+                <div class="comparison-card good-card">
+                    <h4 style="color: #28a745;">✅ 有驗證的好處</h4>
+                    <ul style="margin-top: 10px; line-height: 1.8;">
+                        <li>確保資料完整性</li>
+                        <li>提供即時回饋給用戶</li>
+                        <li>避免錯誤資料進入系統</li>
+                        <li>提升用戶體驗</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="beginner-tip">
+                想像你在填寫線上購物的地址，如果你填錯了郵遞區號，網站應該要告訴你哪裡錯了，而不是讓你一直猜錯在哪裡！
+            </div>
+        </div>
+
+        <!-- 第二步：建立資料模型 -->
+        <div class="section">
+            <h2><span class="emoji">🏗️</span>第二步：建立資料模型</h2>
+            
+            <div class="what-is-this">
+                <h4>什麼是「資料模型」？</h4>
+                <p>資料模型就像是設計一張表格，決定要收集哪些資料。比如註冊表單需要姓名、信箱、密碼等，我們就把這些設計成一個結構。</p>
+            </div>
+
+            <h3><span class="step-number">1</span>設計用戶資料結構</h3>
+            
+            <div class="code-block">
+                <div class="code-title">用戶註冊資料模型</div>
+struct UserRegistration: Codable {
+    var firstName: String        // 名字
+    var lastName: String         // 姓氏
+    var email: String           // 電子信箱
+    var password: String        // 密碼
+    var confirmPassword: String // 確認密碼
+    var phoneNumber: String     // 電話號碼
+    var birthDate: Date        // 生日
+    var gender: Gender         // 性別
+    var agreeToTerms: Bool     // 是否同意條款
+    
+    var fullName: String {     // 組合全名
+        return "\(firstName) \(lastName)"
+    }
+    
+    init() {                   // 初始化所有欄位
+        self.firstName = ""
+        self.lastName = ""
+        self.email = ""
+        self.password = ""
+        self.confirmPassword = ""
+        self.phoneNumber = ""
+        self.birthDate = Date()
+        self.gender = .notSpecified
+        self.agreeToTerms = false
+    }
+}
+            </div>
+
+            <div class="beginner-tip">
+                Codable 讓我們可以把資料儲存起來，就像把表單存成檔案一樣。init() 是初始化函數，設定所有欄位的預設值。
+            </div>
+
+            <h3><span class="step-number">2</span>建立輔助的列舉</h3>
+            
+            <div class="code-block">
+                <div class="code-title">性別選項列舉</div>
+enum Gender: String, CaseIterable, Codable {
+    case male = "男性"
+    case female = "女性"
+    case nonBinary = "非二元"
+    case notSpecified = "不願透露"
+    
+    var icon: String {         // 每個選項的圖示
+        switch self {
+        case .male: return "person.fill"
+        case .female: return "person.fill"
+        case .nonBinary: return "person.2.fill"
+        case .notSpecified: return "questionmark.circle"
+        }
+    }
+}
+            </div>
+
+            <div class="simple-explanation">
+                💭 CaseIterable 讓我們可以輕鬆取得所有選項，非常適合用在選擇器中。
+            </div>
+
+            <div class="step-by-step">
+                <strong>🎯 實作步驟：</strong>
+                <ol style="margin-top: 10px; line-height: 1.8;">
+                    <li>在 ContentView.swift 的最上方加入 UserRegistration 結構</li>
+                    <li>加入 Gender 列舉</li>
+                    <li>確認程式碼沒有紅色錯誤提示</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- 第三步：建立表單管理器 -->
+        <div class="section">
+            <h2><span class="emoji">🎛️</span>第三步：建立表單管理器</h2>
+            
+            <div class="what-is-this">
+                <h4>為什麼需要「管理器」？</h4>
+                <p>表單管理器就像一個智慧秘書，負責管理所有的表單資料、檢查輸入錯誤、處理提交等工作。這樣我們就不用在每個地方都寫重複的程式碼。</p>
+            </div>
+
+            <h3><span class="step-number">1</span>建立基本管理器</h3>
+            
+            <div class="code-block">
+                <div class="code-title">表單管理器類別</div>
+class FormManager: ObservableObject {
+    @Published var userData = UserRegistration()  // 用戶填寫的資料
+    @Published var showingErrors = false          // 是否顯示錯誤提示
+    @Published var validationErrors: [ValidationError] = []  // 錯誤清單
+    @Published var isSubmitting = false          // 是否正在提交
+    @Published var showSuccessView = false       // 是否顯示成功頁面
+    
+    // 其他功能函數會在後面加入...
+}
+            </div>
+
+            <div class="beginner-tip">
+                @Published 很重要！當這些變數改變時，SwiftUI 會自動更新畫面。比如當 showingErrors 變成 true 時，錯誤提示就會自動出現。
+            </div>
+
+            <h3><span class="step-number">2</span>定義驗證錯誤類型</h3>
+            
+            <div class="code-block">
+                <div class="code-title">驗證錯誤列舉</div>
+enum ValidationError: LocalizedError, Equatable {
+    case emptyField(String)     // 空白欄位
+    case invalidEmail          // 無效信箱
+    case passwordTooShort      // 密碼太短
+    case passwordMismatch      // 密碼不匹配
+    case invalidPhoneNumber    // 無效電話號碼
+    case underage             // 未滿18歲
+    case termsNotAccepted     // 未同意條款
+    
+    var errorDescription: String? {
+        switch self {
+        case .emptyField(let field):
+            return "\(field)不能為空"
+        case .invalidEmail:
+            return "請輸入有效的電子信箱格式"
+        case .passwordTooShort:
+            return "密碼至少需要8個字元"
+        case .passwordMismatch:
+            return "確認密碼不匹配"
+        case .invalidPhoneNumber:
+            return "請輸入有效的電話號碼格式"
+        case .underage:
+            return "您必須年滿18歲才能註冊"
+        case .termsNotAccepted:
+            return "請同意使用條款"
+        }
+    }
+}
+            </div>
+
+            <div class="validation-example">
+                <h4>💡 驗證錯誤的好例子：</h4>
+                <p><strong>不好的錯誤訊息：</strong>"輸入錯誤"</p>
+                <p><strong>好的錯誤訊息：</strong>"電子信箱格式不正確，請確認包含 @ 符號"</p>
+                <p>清楚的錯誤訊息讓用戶知道該如何修正問題！</p>
+            </div>
+        </div>
+
+        <!-- 第四步：實作表單驗證 -->
+        <div class="section">
+            <h2><span class="emoji">🔍</span>第四步：實作表單驗證</h2>
+            
+            <div class="what-is-this">
+                <h4>什麼是「表單驗證」？</h4>
+                <p>就像老師批改考卷一樣，表單驗證會檢查每個欄位是否填寫正確。比如檢查信箱是否有@符號、密碼是否夠長等。</p>
+            </div>
+
+            <h3><span class="step-number">1</span>基本驗證邏輯</h3>
+            
+            <div class="code-block">
+                <div class="code-title">表單驗證函數</div>
+func validateForm() -> Bool {
+    validationErrors.removeAll()  // 清除之前的錯誤
+    
+    // 檢查名字是否為空
+    if userData.firstName.trimmingCharacters(in: .whitespaces).isEmpty {
+        validationErrors.append(.emptyField("名字"))
+    }
+    
+    // 檢查信箱格式
+    if userData.email.trimmingCharacters(in: .whitespaces).isEmpty {
+        validationErrors.append(.emptyField("電子信箱"))
+    } else if !isValidEmail(userData.email) {
+        validationErrors.append(.invalidEmail)
+    }
+    
+    // 檢查密碼長度
+    if userData.password.isEmpty {
+        validationErrors.append(.emptyField("密碼"))
+    } else if userData.password.count < 8 {
+        validationErrors.append(.passwordTooShort)
+    }
+    
+    // 檢查確認密碼
+    if userData.password != userData.confirmPassword {
+        validationErrors.append(.passwordMismatch)
+    }
+    
+    return validationErrors.isEmpty  // 沒有錯誤就是驗證成功
+}
+            </div>
+
+            <div class="beginner-tip">
+                trimmingCharacters(in: .whitespaces) 會去除前後的空白字元。這很重要，因為用戶可能不小心在前面或後面加了空格！
+            </div>
+
+            <h3><span class="step-number">2</span>信箱格式驗證</h3>
+            
+            <div class="code-block">
+                <div class="code-title">信箱驗證函數</div>
+private func isValidEmail(_ email: String) -> Bool {
+    let emailRegex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+    let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+    return emailPredicate.evaluate(with: email)
+}
+            </div>
+
+            <div class="simple-explanation">
+                💭 這個函數會檢查信箱是否符合標準格式，比如 user@example.com。正則表達式（regex）是一種用來檢查文字格式的工具。
+            </div>
+
+            <div class="warning-box">
+                正則表達式看起來很複雜，但你不需要完全理解它。重點是知道它能幫我們檢查格式是否正確！
+            </div>
+        </div>
+
+        <!-- 第五步：建立表單介面 -->
+        <div class="section">
+            <h2><span class="emoji">📱</span>第五步：建立表單介面</h2>
+            
+            <h3><span class="step-number">1</span>基本表單結構</h3>
+            
+            <div class="code-block">
+                <div class="code-title">主要表單視圖</div>
+struct RegistrationFormView: View {
+    @ObservedObject var formManager: FormManager
+    
+    var body: some View {
+        Form {
+            // 基本資訊區塊
+            Section(header: Label("基本資訊", systemImage: "person.circle")) {
+                TextField("名字", text: $formManager.userData.firstName)
+                TextField("姓氏", text: $formManager.userData.lastName)
+            }
+            
+            // 帳戶資訊區塊
+            Section(header: Label("帳戶資訊", systemImage: "key.horizontal")) {
+                TextField("電子信箱", text: $formManager.userData.email)
+                    .keyboardType(.emailAddress)
+                    .autocorrectionDisabled()
+                
+                SecureField("密碼", text: $formManager.userData.password)
+                SecureField("確認密碼", text: $formManager.userData.confirmPassword)
+            }
+        }
+        .navigationTitle("用戶註冊")
+    }
+}
+            </div>
+
+            <div class="beginner-tip">
+                Label 會自動顯示圖示和文字，讓表單標題更美觀。keyboardType(.emailAddress) 會讓鍵盤自動顯示@符號，方便用戶輸入信箱！
+            </div>
+
+            <h3><span class="step-number">2</span>密碼欄位增強功能</h3>
+            
+            <div class="code-block">
+                <div class="code-title">可顯示/隱藏的密碼欄位</div>
+struct AccountInfoSection: View {
+    @ObservedObject var formManager: FormManager
+    @State private var showPassword = false
+    
+    var body: some View {
+        Section(header: Label("帳戶資訊", systemImage: "key.horizontal")) {
+            // 可切換顯示的密碼欄位
+            HStack {
+                Group {
+                    if showPassword {
+                        TextField("密碼", text: $formManager.userData.password)
+                    } else {
+                        SecureField("密碼", text: $formManager.userData.password)
+                    }
+                }
+                
+                Button(action: { showPassword.toggle() }) {
+                    Image(systemName: showPassword ? "eye.slash" : "eye")
+                        .foregroundColor(.gray)
+                }
+            }
+        }
+    }
+}
+            </div>
+
+            <div class="simple-explanation">
+                💭 這個功能讓用戶可以點擊眼睛圖示來顯示或隱藏密碼，就像很多App的做法一樣！
+            </div>
+        </div>
+
+        <!-- 第六步：選擇器組件 -->
+        <div class="section">
+            <h2><span class="emoji">📅</span>第六步：選擇器組件</h2>
+            
+            <h3><span class="step-number">1</span>日期選擇器</h3>
+            
+            <div class="code-block">
+                <div class="code-title">生日選擇器</div>
+DatePicker(
+    selection: $formManager.userData.birthDate,
+    in: Calendar.current.date(byAdding: .year, value: -100, to: Date())!...
+         Calendar.current.date(byAdding: .year, value: -13, to: Date())!,
+    displayedComponents: .date
+) {
+    HStack {
+        Image(systemName: "calendar")
+            .foregroundColor(.blue)
+        Text("生日")
+    }
+}
+            </div>
+
+            <div class="beginner-tip">
+                這個日期選擇器限制了年齡範圍：最大100歲，最小13歲。in: 參數設定了可選擇的日期範圍。
+            </div>
+
+            <h3><span class="step-number">2</span>下拉式選擇器</h3>
+            
+            <div class="code-block">
+                <div class="code-title">性別選擇器</div>
+Picker(selection: $formManager.userData.gender, label: 
+    HStack {
+        Image(systemName: "person.2")
+            .foregroundColor(.blue)
+        Text("性別")
+    }
+) {
+    ForEach(Gender.allCases, id: \.self) { gender in
+        HStack {
+            Image(systemName: gender.icon)
+            Text(gender.rawValue)
+        }
+        .tag(gender)
+    }
+}
+            </div>
+
+            <div class="simple-explanation">
+                💭 ForEach 會為每個性別選項建立一個選擇項目。.tag(gender) 告訴 Picker 這個選項對應哪個值。
+            </div>
+
+            <h3><span class="step-number">3</span>切換開關</h3>
+            
+            <div class="code-block">
+                <div class="code-title">同意條款開關</div>
+Toggle(isOn: $formManager.userData.agreeToTerms) {
+    VStack(alignment: .leading, spacing: 2) {
+        Text("同意使用條款")
+        Text("我已閱讀並同意服務條款和隱私政策")
+            .font(.caption)
+            .foregroundColor(.secondary)
+    }
+}
+            </div>
+
+            <div class="beginner-tip">
+                Toggle 就像真實世界的開關，可以開啟或關閉。isOn 參數決定開關的狀態。
+            </div>
+        </div>
+
+        <!-- 第七步：錯誤處理與提交 -->
+        <div class="section">
+            <h2><span class="emoji">⚠️</span>第七步：錯誤處理與提交</h2>
+            
+            <h3><span class="step-number">1</span>顯示錯誤訊息</h3>
+            
+            <div class="code-block">
+                <div class="code-title">錯誤提示 Alert</div>
+.alert("驗證錯誤", isPresented: $formManager.showingErrors) {
+    Button("確定", role: .cancel) { }
+} message: {
+    VStack(alignment: .leading) {
+        ForEach(formManager.validationErrors, id: \.localizedDescription) { error in
+            Text("• \(error.localizedDescription ?? "")")
+        }
+    }
+}
+            </div>
+
+            <div class="simple-explanation">
+                💭 當 showingErrors 為 true 時，Alert 會自動彈出，顯示所有驗證錯誤的清單。
+            </div>
+
+            <h3><span class="step-number">2</span>表單提交邏輯</h3>
+            
+            <div class="code-block">
+                <div class="code-title">提交按鈕和處理</div>
+Button(action: {
+    formManager.submitForm()
+}) {
+    HStack {
+        if formManager.isSubmitting {
+            ProgressView()
+                .scaleEffect(0.8)
+        } else {
+            Image(systemName: "checkmark.circle.fill")
+        }
+        
+        Text(formManager.isSubmitting ? "註冊中..." : "完成註冊")
+            .fontWeight(.semibold)
+    }
+    .frame(maxWidth: .infinity)
+    .padding()
+    .background(formManager.isSubmitting ? Color.gray : Color.blue)
+    .foregroundColor(.white)
+    .cornerRadius(12)
+}
+.disabled(formManager.isSubmitting)
+            </div>
+
+            <h3><span class="step-number">3</span>提交函數實作</h3>
+            
+            <div class="code-block">
+                <div class="code-title">表單提交函數</div>
+func submitForm() {
+    if validateForm() {
+        isSubmitting = true
+        
+        // 模擬網路請求延遲
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.isSubmitting = false
+            self.showSuccessView = true
+            self.saveUserData()
+        }
+    } else {
+        showingErrors = true
+    }
+}
+            </div>
+
+            <div class="beginner-tip">
+                DispatchQueue.main.asyncAfter 用來模擬網路請求的延遲。在真實的App中，這裡會是發送資料到伺服器的程式碼。
+            </div>
+        </div>
+
+        <!-- 第八步：成功頁面 -->
+        <div class="section">
+            <h2><span class="emoji">🎉</span>第八步：設計成功頁面</h2>
+            
+            <h3><span class="step-number">1</span>成功視圖設計</h3>
+            
+            <div class="code-block">
+                <div class="code-title">註冊成功頁面</div>
+struct SuccessView: View {
+    @ObservedObject var formManager: FormManager
+    
+    var body: some View {
+        VStack(spacing: 30) {
+            // 成功圖示
+            Image(systemName: "checkmark.circle.fill")
+                .font(.system(size: 80))
+                .foregroundColor(.green)
+            
+            VStack(spacing: 12) {
+                Text("註冊成功！")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                
+                Text("歡迎加入我們，\(formManager.userData.fullName)！")
+                    .font(.title2)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+            }
+            
+            // 重新填寫按鈕
+            Button("重新填寫") {
+                formManager.resetForm()
+            }
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(Color.blue)
+            .foregroundColor(.white)
+            .cornerRadius(12)
+        }
+        .padding()
+    }
+}
+            </div>
+
+            <div class="simple-explanation">
+                💭 成功頁面給用戶正面的回饋，讓他們知道操作完成了。個人化的歡迎訊息會讓體驗更好！
+            </div>
+        </div>
+
+        <!-- 常見問題 -->
+        <div class="section">
+            <h2><span class="emoji">❓</span>常見問題與解決方案</h2>
+            
+            <h3>問題 1：表單驗證沒有作用</h3>
+            <div class="form-comparison">
+                <div class="comparison-card bad-card">
+                    <strong>可能原因：</strong>
+                    <ul style="margin-top: 10px; line-height: 1.6;">
+                        <li>忘記呼叫 validateForm()</li>
+                        <li>@Published 沒有正確設定</li>
+                        <li>驗證邏輯有錯誤</li>
+                    </ul>
+                </div>
+                <div class="comparison-card good-card">
+                    <strong>解決方法：</strong>
+                    <ul style="margin-top: 10px; line-height: 1.6;">
+                        <li>確認在提交時有呼叫驗證</li>
+                        <li>檢查 FormManager 是否用 @StateObject</li>
+                        <li>測試每個驗證條件</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>問題 2：Alert 沒有顯示</h3>
+            <div class="form-comparison">
+                <div class="comparison-card bad-card">
+                    <strong>可能原因：</strong>
+                    <ul style="margin-top: 10px; line-height: 1.6;">
+                        <li>showingErrors 沒有設為 true</li>
+                        <li>Alert 的 binding 錯誤</li>
+                        <li>錯誤清單是空的</li>
+                    </ul>
+                </div>
+                <div class="comparison-card good-card">
+                    <strong>解決方法：</strong>
+                    <ul style="margin-top: 10px; line-height: 1.6;">
+                        <li>在驗證失敗時設定 showingErrors = true</li>
+                        <li>確認用 $formManager.showingErrors</li>
+                        <li>檢查 validationErrors 陣列內容</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>問題 3：鍵盤遮住輸入欄位</h3>
+            <div class="beginner-tip">
+                SwiftUI 通常會自動處理鍵盤避讓，但如果有問題，可以用 .ignoresSafeArea(.keyboard, edges: .bottom) 來調整。
+            </div>
+        </div>
+
+        <!-- 練習挑戰 -->
+        <div class="practice-exercise">
+            <h2><span class="emoji">💪</span>練習挑戰</h2>
+            
+            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <h3>🎯 挑戰 1：加入密碼強度指示器</h3>
+                <p><strong>任務：</strong>為密碼欄位加上強度指示器（弱/中/強）</p>
+                <p><strong>提示：</strong>檢查密碼長度、是否包含數字、大小寫字母和特殊符號</p>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <h3>🎨 挑戰 2：即時驗證回饋</h3>
+                <p><strong>任務：</strong>在用戶輸入時即時顯示驗證結果，而不是等到提交才檢查</p>
+                <p><strong>提示：</strong>可以在 TextField 旁邊顯示綠色勾號或紅色叉號</p>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <h3>📱 挑戰 3：手機號碼格式化</h3>
+                <p><strong>任務：</strong>自動格式化電話號碼（例如：0912345678 → 0912-345-678）</p>
+                <p><strong>提示：</strong>使用 onChange 修飾符來監聽輸入變化</p>
+            </div>
+        </div>
+
+        <!-- 總結 -->
+        <div class="section" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white;">
+            <h2><span class="emoji">🎉</span>恭喜！你完成了 Day 10</h2>
+            
+            <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; margin: 20px 0;">
+                <h3>你學會了什麼？</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3em; margin-bottom: 10px;">📋</div>
+                        <strong>Form 表單</strong><br>
+                        建立專業的表單介面
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 3em; margin-bottom: 10px;">🔍</div>
+                        <strong>表單驗證</strong><br>
+                        檢查用戶輸入的正確性
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 3em; margin-bottom: 10px;">⚠️</div>
+                        <strong>錯誤處理</strong><br>
+                        優雅地處理和顯示錯誤
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 3em; margin-bottom: 10px;">🎛️</div>
+                        <strong>UI 組件</strong><br>
+                        各種輸入和選擇組件
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <h3>🚀 明天 Day 11 預告</h3>
+                <p style="font-size: 1.1em; margin-top: 15px; line-height: 1.8;">
+                    <strong>設定頁面 - 偏好設定與 @AppStorage</strong><br>
+                    學習如何建立 App 設定頁面，包含開關、選擇器，以及如何永久儲存用戶偏好設定
+                </p>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-top: 20px;">
+                    <p style="font-size: 1.2em; font-weight: bold;">
+                        🌟 你已經掌握了表單設計的核心技能！🌟
+                    </p>
+                    <p style="margin-top: 10px;">
+                        表單驗證是 App 開發的重要基礎，幾乎每個 App 都需要這個技能。繼續加油！
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 簡單的互動效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 為程式碼區塊添加點擊效果
+            const codeBlocks = document.querySelectorAll('.code-block');
+            codeBlocks.forEach(block => {
+                block.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+
+            // 為步驟數字添加動畫
+            const stepNumbers = document.querySelectorAll('.step-number');
+            stepNumbers.forEach(step => {
+                step.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.1)';
+                });
+                step.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
