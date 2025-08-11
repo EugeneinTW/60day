@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洛克菲勒38封信 - 視覺化圖表集</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft JhengHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #FAF7F0 0%, #F5F5DC 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            border: 3px solid #8B4513;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            color: #8B4513;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            color: #696969;
+            margin-bottom: 20px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #DAA520, #FFD700);
+            border-radius: 10px;
+            color: #8B4513;
+            font-weight: bold;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-tab {
+            padding: 12px 24px;
+            background: white;
+            border: 2px solid #8B4513;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            color: #8B4513;
+        }
+        
+        .nav-tab:hover {
+            background: #8B4513;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .nav-tab.active {
+            background: #8B4513;
+            color: white;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+        }
+        
+        .chart-container {
+            display: none;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            border: 2px solid #DAA520;
+        }
+        
+        .chart-container.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .chart-title {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #DAA520;
+        }
+        
+        .chart-title h2 {
+            font-size: 1.8em;
+            color: #8B4513;
+            margin-bottom: 10px;
+        }
+        
+        .chart-title p {
+            color: #696969;
+            font-size: 1.1em;
+        }
+        
+        .svg-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .svg-container svg {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: white;
+        }
+        
+        .chart-description {
+            margin-top: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, #FFF8DC, #F0F8FF);
+            border-radius: 15px;
+            border-left: 5px solid #8B4513;
+        }
+        
+        .chart-description h3 {
+            color: #8B4513;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .chart-description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .chart-description li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .chart-description li:before {
+            content: "💡";
+            position: absolute;
+            left: 0;
+        }
+        
+        .summary {
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #E6E6FA, #F0F8FF);
+            border-radius: 20px;
+            border: 3px solid #8B4513;
+        }
+        
+        .summary h2 {
+            text-align: center;
+            color: #8B4513;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .summary-item {
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            border: 2px solid #DAA520;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .summary-item h3 {
+            color: #8B4513;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #696969;
+            background: white;
+            border-radius: 15px;
+            border: 2px solid #8B4513;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2em; }
+            .nav-tabs { flex-direction: column; align-items: center; }
+            .stats { flex-direction: column; align-items: center; }
+            .container { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 標題區塊 -->
+        <header class="header">
+            <h1>📊 洛克菲勒38封信 視覺化圖表集</h1>
+            <p>系統化視覺呈現洛克菲勒的成功智慧與人生哲學</p>
+            <div class="stats">
+                <div class="stat-item">📈 5張核心圖表</div>
+                <div class="stat-item">🎯 38封信精華</div>
+                <div class="stat-item">💡 系統化智慧</div>
+                <div class="stat-item">🏆 成功密碼</div>
+            </div>
+        </header>
+        
+        <!-- 導航標籤 -->
+        <div class="nav-tabs">
+            <div class="nav-tab active" onclick="showChart('chart1')">圖1：命運自主論</div>
+            <div class="nav-tab" onclick="showChart('chart2')">圖2：成功哲學金字塔</div>
+            <div class="nav-tab" onclick="showChart('chart3')">圖3：財富功能轉換</div>
+            <div class="nav-tab" onclick="showChart('chart4')">圖4：競爭合作平衡</div>
+            <div class="nav-tab" onclick="showChart('chart5')">圖5：家族傳承價值鏈</div>
+        </div>
+        
+        <!-- 圖表1：命運自主論對比圖 -->
+        <div id="chart1" class="chart-container active">
+            <div class="chart-title">
+                <h2>🎯 圖1：命運自主論對比圖</h2>
+                <p>起點不決定終點，行動決定命運</p>
+            </div>
+            <div class="svg-container">
+                <iframe src="圖1_命運自主論對比圖.svg" width="100%" height="600" style="border:none; border-radius:10px;"></iframe>
+            </div>
+            <div class="chart-description">
+                <h3>💡 圖表核心洞察</h3>
+                <ul>
+                    <li>出身富裕不等於終身富裕：17個富二代案例證明財富無法自動傳承</li>
+                    <li>行動決定命運：洛克菲勒從週薪5元起步，建立石油王國</li>
+                    <li>持續奮鬥的力量：山腳起點通過努力可以攀登到成功山頂</li>
+                    <li>核心信念：「我們的命運是由我們的行動決定的，而並不是我們的出身」</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 圖表2：成功哲學金字塔 -->
+        <div id="chart2" class="chart-container">
+            <div class="chart-title">
+                <h2>🏗️ 圖2：洛克菲勒成功哲學金字塔</h2>
+                <p>38封信構建的系統化成功體系</p>
+            </div>
+            <div class="svg-container">
+                <iframe src="圖2_洛克菲勒成功哲學金字塔.svg" width="100%" height="600" style="border:none; border-radius:10px;"></iframe>
+            </div>
+            <div class="chart-description">
+                <h3>🎯 金字塔建構邏輯</h3>
+                <ul>
+                    <li>第一層：心態基礎（1-10封信）- 積極主動、堅持不懈、自信自立</li>
+                    <li>第二層：智慧策略（11-20封信）- 財富觀念、機會把握、價值交換</li>
+                    <li>第三層：實戰技巧（21-30封信）- 競爭策略、合作藝術、資源管理</li>
+                    <li>第四層：領導智慧（31-38封信）- 目標管理、人才配置、社會責任</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 圖表3：財富功能轉換圖 -->
+        <div id="chart3" class="chart-container">
+            <div class="chart-title">
+                <h2>💰 圖3：財富功能轉換圖</h2>
+                <p>正確vs錯誤的財富觀對比</p>
+            </div>
+            <div class="svg-container">
+                <iframe src="圖3_財富功能轉換圖.svg" width="100%" height="600" style="border:none; border-radius:10px;"></iframe>
+            </div>
+            <div class="chart-description">
+                <h3>⚖️ 財富使用的兩條路徑</h3>
+                <ul>
+                    <li>正確路徑：財富→自由→持續成長，讓金錢為你工作</li>
+                    <li>錯誤路徑：財富→炫耀消費→成為奴隸，為金錢而工作</li>
+                    <li>核心智慧：「不為金錢之奴，讓金錢為你服務」</li>
+                    <li>關鍵差異：財富的目的是買到自由，不是奢侈品</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 圖表4：競爭合作平衡圖 -->
+        <div id="chart4" class="chart-container">
+            <div class="chart-title">
+                <h2>⚖️ 圖4：競爭與合作平衡圖</h2>
+                <p>商業智慧中的平衡藝術</p>
+            </div>
+            <div class="svg-container">
+                <iframe src="圖4_競爭合作平衡圖.svg" width="100%" height="600" style="border:none; border-radius:10px;"></iframe>
+            </div>
+            <div class="chart-description">
+                <h3>🎯 平衡策略的智慧</h3>
+                <ul>
+                    <li>競爭策略：控制關鍵資源、價格戰略、技術創新、市場主導</li>
+                    <li>合作策略：整合產業鏈、聯盟資源、互利共贏、長期夥伴</li>
+                    <li>時機判斷：市場擴張期適合競爭，行業整合期適合合作</li>
+                    <li>實戰案例：標準石油公司90%市場控制的成功模式</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 圖表5：家族傳承價值鏈 -->
+        <div id="chart5" class="chart-container">
+            <div class="chart-title">
+                <h2>🔗 圖5：家族傳承價值鏈</h2>
+                <p>財富之外的智慧傳承</p>
+            </div>
+            <div class="svg-container">
+                <iframe src="圖5_家族傳承價值鏈.svg" width="100%" height="600" style="border:none; border-radius:10px;"></iframe>
+            </div>
+            <div class="chart-description">
+                <h3>🏛️ 百年傳承的秘密</h3>
+                <ul>
+                    <li>三大支柱：品格支柱（誠實正直）、智慧支柱（商業洞察）、責任支柱（社會責任）</li>
+                    <li>38封信的系統教育：價值觀深度傳承，不只是財富轉移</li>
+                    <li>對比分析：一般富豪三代而竭 vs 洛克菲勒影響延續百年</li>
+                    <li>現代啟示：教育重於繼承，智慧勝過金錢</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 總結區塊 -->
+        <div class="summary">
+            <h2>🎓 洛克菲勒38封信核心智慧總結</h2>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <h3>🎯 命運自主</h3>
+                    <p>起點不決定終點，行動決定命運。無論出身如何，持續的努力和正確的選擇才是成功的關鍵。</p>
+                </div>
+                <div class="summary-item">
+                    <h3>🏗️ 系統建構</h3>
+                    <p>成功需要系統化建構：心態基礎→智慧策略→實戰技巧→領導智慧，層層遞進，缺一不可。</p>
+                </div>
+                <div class="summary-item">
+                    <h3>💰 財富智慧</h3>
+                    <p>財富是獲得自由的手段，不是炫耀的工具。讓金錢為你服務，而不是成為金錢的奴隸。</p>
+                </div>
+                <div class="summary-item">
+                    <h3>⚖️ 平衡藝術</h3>
+                    <p>商業中既要競爭也要合作，關鍵在於時機判斷和情境分析，找到最適合的策略平衡點。</p>
+                </div>
+                <div class="summary-item">
+                    <h3>🔗 傳承價值</h3>
+                    <p>真正的傳承不只是財富，更是品格、智慧和社會責任。教育重於繼承，價值觀勝過金錢。</p>
+                </div>
+                <div class="summary-item">
+                    <h3>🌟 永恆智慧</h3>
+                    <p>38封信構成完整的成功教育體系，不僅適用於商業，更是人生哲學的寶貴指南。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 頁腳 -->
+        <footer class="footer">
+            <p>📖 基於《洛克菲勒寫給兒子的38封信》系統化分析製作</p>
+            <p>🎨 視覺化設計遵循書籍分析與視覺化完整指令集</p>
+            <p>💡 將經典智慧轉化為現代可視化表達</p>
+        </footer>
+    </div>
+    
+    <script>
+        function showChart(chartId) {
+            // 隱藏所有圖表
+            const charts = document.querySelectorAll('.chart-container');
+            charts.forEach(chart => {
+                chart.classList.remove('active');
+            });
+            
+            // 移除所有標籤的active狀態
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // 顯示選中的圖表
+            document.getElementById(chartId).classList.add('active');
+            
+            // 添加對應標籤的active狀態
+            event.target.classList.add('active');
+        }
+        
+        // 頁面載入時的動畫效果
+        window.addEventListener('load', function() {
+            const header = document.querySelector('.header');
+            header.style.opacity = '0';
+            header.style.transform = 'translateY(-50px)';
+            
+            setTimeout(() => {
+                header.style.transition = 'all 1s ease';
+                header.style.opacity = '1';
+                header.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
