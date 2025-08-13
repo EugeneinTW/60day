@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會議記錄 - 2024/08/13</title>
+    <style>
+        body {
+            font-family: 'Microsoft JhengHei', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .header .date {
+            font-size: 1.2em;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        .summary {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .summary h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .key-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .point-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 5px solid #e74c3c;
+        }
+        .point-card h3 {
+            color: #e74c3c;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .point-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .point-card li {
+            margin-bottom: 8px;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .content h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        .content h3 {
+            color: #34495e;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        .content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .important {
+            background-color: #f8d7da;
+            padding: 15px;
+            border-left: 4px solid #dc3545;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .data-point {
+            background-color: #d1ecf1;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px;
+            font-weight: bold;
+            color: #0c5460;
+        }
+        .action-item {
+            background-color: #d4edda;
+            padding: 15px;
+            border-left: 4px solid #28a745;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .toc h3 {
+            margin-top: 0;
+            color: #495057;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc li {
+            margin-bottom: 8px;
+        }
+        .toc a {
+            color: #007bff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        .toc a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        .chart-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .chart-bar {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .chart-label {
+            min-width: 120px;
+            text-align: left;
+            font-weight: bold;
+        }
+        .chart-progress {
+            flex: 1;
+            height: 20px;
+            background: #e9ecef;
+            border-radius: 10px;
+            margin: 0 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        .chart-fill {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+        .chart-fill.positive { background: linear-gradient(90deg, #28a745, #20c997); }
+        .chart-fill.negative { background: linear-gradient(90deg, #dc3545, #fd7e14); }
+        .chart-value {
+            min-width: 80px;
+            text-align: right;
+            font-weight: bold;
+        }
+        .process-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            color: white;
+        }
+        .flow-step {
+            text-align: center;
+            flex: 1;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            margin: 0 5px;
+        }
+        .flow-arrow {
+            font-size: 1.5em;
+            color: #ffc107;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .comparison-table th {
+            background: #6c757d;
+            color: white;
+            font-weight: bold;
+        }
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .status-good { color: #28a745; font-weight: bold; }
+        .status-bad { color: #dc3545; font-weight: bold; }
+        .status-neutral { color: #6c757d; font-weight: bold; }
+        .icon-large {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>LINE禮物平台合作策略會議</h1>
+        <div class="date">2024年8月13日</div>
+    </div>
+
+    <div class="summary">
+        <h2>會議重點摘要</h2>
+        <div class="highlight">
+            <strong>核心問題：</strong>合作夥伴計畫實施後，訂單減少8.73%，雖然客單價提升10.53%，但主要來自漲價而非合作效果。
+        </div>
+    </div>
+
+    <div class="key-points">
+        <div class="point-card">
+            <h3>📊 數據分析</h3>
+            <ul>
+                <li>平均客單價提升：<span class="data-point">+10.53%</span></li>
+                <li>訂單數量減少：<span class="data-point">-8.73%</span></li>
+                <li>取消訂單比例偏高</li>
+                <li>OAP次數：7月8次 → 8月2次</li>
+            </ul>
+        </div>
+        
+        <div class="point-card">
+            <h3>🎯 版位問題</h3>
+            <ul>
+                <li>「家式佈置」類別曝光機會少</li>
+                <li>「室內香氛」有潛力但未充分利用</li>
+                <li>「禮物精選」版位缺席</li>
+                <li>男生禮物類別完全沒有</li>
+            </ul>
+        </div>
+        
+        <div class="point-card">
+            <h3>💡 策略方向</h3>
+            <ul>
+                <li>積極爭取室內香氛類別曝光</li>
+                <li>考慮將小夜燈分類至3C家電</li>
+                <li>建立新品扶植流水線</li>
+                <li>加強與PM的溝通頻率</li>
+            </ul>
+        </div>
+        
+        <div class="point-card">
+            <h3>📅 後續行動</h3>
+            <ul>
+                <li>七夕檔期曝光策略規劃</li>
+                <li>10月1日新品上線準備</li>
+                <li>定期會議機制建立</li>
+                <li>版位購買可能性探討</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="toc">
+        <h3>會議內容目錄</h3>
+        <ul>
+            <li><a href="#data-analysis">數據分析與問題識別</a></li>
+            <li><a href="#exposure-issues">版位曝光問題分析</a></li>
+            <li><a href="#strategy-discussion">曝光策略討論</a></li>
+            <li><a href="#operational-details">操作細節確認</a></li>
+            <li><a href="#brand-positioning">品牌定位策略</a></li>
+            <li><a href="#action-plans">後續行動計畫</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h2 id="data-analysis">數據分析與問題識別</h2>
+        
+        <p>平均客單價提升了10.53%，但這也不是它的功勞，而是因為我們調漲價格。一來一回來看，訂單反而減少了8.73%。以8月1號到11號這個區間的數據來看，合作夥伴目前是沒有任何效果的，這也是為什麼我們要開這個會議最重要的原因，從數據分析可以看到訂單其實掉了不少。</p>
+
+        <div class="chart-container">
+            <h3>📊 關鍵數據表現</h3>
+            <div class="chart-bar">
+                <div class="chart-label">平均客單價</div>
+                <div class="chart-progress">
+                    <div class="chart-fill positive" style="width: 60%"></div>
+                </div>
+                <div class="chart-value">+10.53%</div>
+            </div>
+            <div class="chart-bar">
+                <div class="chart-label">訂單數量</div>
+                <div class="chart-progress">
+                    <div class="chart-fill negative" style="width: 45%"></div>
+                </div>
+                <div class="chart-value">-8.73%</div>
+            </div>
+            <div class="chart-bar">
+                <div class="chart-label">OAP次數 (7月)</div>
+                <div class="chart-progress">
+                    <div class="chart-fill positive" style="width: 80%"></div>
+                </div>
+                <div class="chart-value">8次</div>
+            </div>
+            <div class="chart-bar">
+                <div class="chart-label">OAP次數 (8月)</div>
+                <div class="chart-progress">
+                    <div class="chart-fill negative" style="width: 20%"></div>
+                </div>
+                <div class="chart-value">2次</div>
+            </div>
+        </div>
+
+        <div class="important">
+            <strong>關鍵發現：</strong>即使8月遇到父親節大檔期，業績仍未提升，顯示合作夥伴效果有限。
+        </div>
+
+        <p>關於取消訂單的數值，我想分析一下，因為最近的新品銷量較好，取消訂單的原因很多是因為客戶已經購買過同類商品，所以不想重複購買。但取消訂單的數值確實有上升，跟我的新品理論並沒有關聯性，這個數據也可以輔助大家了解，我們現在的銷售模式下，取消訂單的比例仍然偏高。</p>
+
+        <h2 id="exposure-issues">版位曝光問題分析</h2>
+
+        <p>這是比較詳細的所有版位狀況，從首頁開始到所有版位我們的狀態。可以看到像首頁進去最大的版位「生日祝福」，在快速出貨裡面我們完全沒有這樣的文創品。在「送禮物品牌」中，我們沒有男生禮物排名，也沒有生日禮物，這當然不符合我們想要的「每個版位都有」的目標。還有像「送給男生」這一塊我們也沒有。</p>
+
+        <div class="chart-container">
+            <h3>🎯 版位覆蓋率分析</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>版位類別</th>
+                        <th>覆蓋狀態</th>
+                        <th>重要程度</th>
+                        <th>改善建議</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🎂 生日祝福</td>
+                        <td><span class="status-bad">❌ 無覆蓋</span></td>
+                        <td>高</td>
+                        <td>增加文創品類</td>
+                    </tr>
+                    <tr>
+                        <td>👨 男生禮物</td>
+                        <td><span class="status-bad">❌ 無覆蓋</span></td>
+                        <td>高</td>
+                        <td>產品重新分類</td>
+                    </tr>
+                    <tr>
+                        <td>🏠 家式佈置</td>
+                        <td><span class="status-neutral">⚠️ 少量</span></td>
+                        <td>中</td>
+                        <td>類別名稱調整</td>
+                    </tr>
+                    <tr>
+                        <td>🌸 室內香氛</td>
+                        <td><span class="status-neutral">⚠️ 單一商品</span></td>
+                        <td>高</td>
+                        <td>擴香商品增加</td>
+                    </tr>
+                    <tr>
+                        <td>⚡ 快速出貨</td>
+                        <td><span class="status-bad">❌ 無覆蓋</span></td>
+                        <td>中</td>
+                        <td>庫存策略調整</td>
+                    </tr>
+                    <tr>
+                        <td>🎁 禮物精選</td>
+                        <td><span class="status-bad">❌ 大部分缺席</span></td>
+                        <td>極高</td>
+                        <td>積極爭取</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>主要問題點</h3>
+
+        <div class="point-card">
+            <h3>家式佈置類別限制</h3>
+            <p>看到這個版塊曝光，我覺得比較大的問題第一個是「家式佈置」很少，因為我們是居家品類，所以家式佈置曝光版位較少的話，我們的曝光機會就比較少。我覺得這是比較大的問題，因為「佈置」這個名字本來就不太像禮物，在這麼少家式佈置的情況下，即使是合作夥伴的曝光版位也蠻少的。</p>
+        </div>
+
+        <div class="action-item">
+            <strong>室內香氛機會：</strong>另外一個問題是在各類別中，無論是送給男生、送給女生、禮物排行，都有看到「室內香氛」，但我們的商品卻一直都只有少數被曝光。室內香氛是他們最近在主推的商品嗎？他們室內香氛這個類別賣得比較好，那我們的一些香氛商品怎麼樣才可以被放到這個類別裡面？
+        </div>
+
+        <p>列出來之後就比較知道有哪些東西我們沒有在裡面，尤其是「禮物精選」，等於是這個類別點進去看第一個畫面，這個版位我們很多都沒有在裡面。在消費者的購買路徑來看是蠻可惜的，因為禮物精選應該是大家最直覺會去挑選禮物的地方。</p>
+
+        <h2 id="strategy-discussion">曝光策略討論</h2>
+
+        <p>所以主要會跟他討論第一個是關於曝光跟來源。現在我想了解的是我們目前的業績到底來自哪裡？因為在合作夥伴之前，我們認為曝光來源可能來自OAP，但我們現在參加合作夥伴了，想了解到底哪個版位、哪個區塊才是我們主要的業績來源。</p>
+
+        <h3>關鍵討論點</h3>
+        <ul>
+            <li>與其他同品類相比，我們的曝光次數大概在哪個區間？</li>
+            <li>我們分潤提升之後，合作夥伴之後，我們有沒有增加曝光，大概增加了多少？</li>
+            <li>曝光的主要影響因素是什麼？是分類嗎？還是商品銷量，或者我們能不能直接購買？</li>
+        </ul>
+
+        <div class="highlight">
+            <strong>商品分類策略：</strong>商品的分類會影響曝光，像開運類商品，在做這個分類的時候發現，其實小夜燈很多是因為在3C家電這個類別才被曝光的，我是不是應該把我們商品都從副品號放到3C家電這個類別，不管到底有沒有幫助。
+        </div>
+
+        <h3>新品與舊品策略</h3>
+        <p>接下來是PM的新品跟舊品的曝光策略。觀察到這個禮拜其實曝光了蠻多新品，新品跟舊品的曝光策略是怎麼安排的？我們能不能至少保持貓手、躺平壓等一直都有穩定的曝光，不要這樣突然替換掉。</p>
+
+        <div class="process-flow">
+            <div class="flow-step">
+                <div class="icon-large">🚀</div>
+                <h4>新品推廣</h4>
+                <p>建立基礎銷量</p>
+            </div>
+            <div class="flow-arrow">➡️</div>
+            <div class="flow-step">
+                <div class="icon-large">📈</div>
+                <h4>數據累積</h4>
+                <p>提供PM數據支持</p>
+            </div>
+            <div class="flow-arrow">➡️</div>
+            <div class="flow-step">
+                <div class="icon-large">🎯</div>
+                <h4>爭取曝光</h4>
+                <p>進入正向循環</p>
+            </div>
+            <div class="flow-arrow">➡️</div>
+            <div class="flow-step">
+                <div class="icon-large">👑</div>
+                <h4>穩定版位</h4>
+                <p>成為排行榜常客</p>
+            </div>
+        </div>
+
+        <h2 id="operational-details">操作細節確認</h2>
+
+        <p>這邊有一些操作的細節想跟他確認，要確認到底哪個項目才是他們現在平台上比較喜歡的。據我所知，他們之前有在推快速出貨，但我們也觀察到快速出貨現在都被拉掉了，所以這部分要跟他確認到底我們怎麼做或優化哪個方向比較有幫助。</p>
+
+        <h3>優化方向</h3>
+        <ul>
+            <li><strong>套裝設計1+1或價格調整：</strong>因為價格他們其實不是每次都在講說不會太考量，但實際上稍微想一下，他們確實也會考量，所以價格部分我們這邊是有空間可以調整的</li>
+            <li><strong>品名關鍵字影響：</strong>我們其實曾經懷疑過會不會影響曝光，後續看起來因為不同的PM都跟我們說沒有影響，所以還是要確認品名關鍵字到底是不是有影響</li>
+            <li><strong>各類別曝光權重：</strong>比較操作面的像各類別的曝光權重到底有沒有差別</li>
+        </ul>
+
+        <div class="important">
+            <strong>溝通策略：</strong>因為有一些品牌有一些特殊版位，溝通的時候先問他，先不要急於說這是板位，先問他看他怎麼說。如果他自己提到，就先了解真正的原因是什麼。如果假設是付費，他們應該會直接說這是付費版位，再順著他的話問付費是多少，我們不要自己積極說「我可以付費買版位嗎？」先看對方怎麼說。
+        </div>
+
+        <h2 id="brand-positioning">品牌定位策略</h2>
+
+        <p>總結來講，看了這個版位，我覺得比較特別的現象跟我們可以去爭取的，像室內香氛，確實可以看到他們在各分類裡面都有室內香氛，家式佈置很少，但室內香氛一定都會有。所以室內香氛我們現在不是沒有這些商品，只是我們的商品為什麼都沒有進去？是因為我們沒有精油嗎？</p>
+
+        <h3>競爭對手分析</h3>
+        <p>觀察到幾個分類是只有同一個品牌，算是比較特別，不知道他們怎麼做到的。雖然這是送給男生，但全部都是只有同一家品牌。我相信我們都已經參加合作夥伴了，或許有機會可以做到這件事情。</p>
+
+        <div class="highlight">
+            <strong>品牌建設重要性：</strong>會不會是可以獲得獨家版位的方程式是品牌感很濃厚的，跟銷量同時加成。那個同人時尚跟那個品牌，他們基本上都在各自的官網裡面，看到的訊息是真的蠻積極在做品牌這件事情。而且都是蠻垂直的。
+        </div>
+
+        <h2 id="action-plans">後續行動計畫</h2>
+
+        <h3>檔期規劃</h3>
+        <div class="action-item">
+            <strong>七夕策略：</strong>最後部分是接下來七夕，這邊有沒有什麼幫我們曝光的策略？因為七夕快到了，理論上他們的大檔期應該要幫我們有一些安排規劃，無論是要我們做1+1，或要我們做快速出貨，都應該要跟我們討論。
+        </div>
+
+        <h3>新品上線</h3>
+        <p>新品曝光提醒，因為商品出來了，本來就安排在這禮拜，就確認一下這個東西我們10月1號會上線，我們的曝光策略是什麼？還有我們下次可不可以繼續維持像這樣的會議討論。</p>
+
+        <h3>長期策略</h3>
+        <ul>
+            <li><strong>流水線扶植：</strong>我們應該要有一個流水線扶植新品的方式，他應該要先做一些事情，讓銷量上去，然後之後再讓它提升像貓手的做法</li>
+            <li><strong>積極溝通：</strong>要積極度極高的，讓他刷存在感，讓他知道。我覺得可能要一兩個禮拜追蹤</li>
+            <li><strong>定期會議：</strong>我們跟LINE禮物的PM多久可以這樣密切討論一次？其實應該跟他約都可以。如果有什麼東西想跟他討論，隨時可以跟他約會議</li>
+        </ul>
+
+        <div class="chart-container">
+            <h3>🏢 內部資源競爭分析</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+                <div style="text-align: center; padding: 20px; background: #f8d7da; border-radius: 10px;">
+                    <div class="icon-large">👥</div>
+                    <h4>PM部門</h4>
+                    <p>負責商家關係<br>版位有限</p>
+                </div>
+                <div style="text-align: center; padding: 20px; background: #fff3cd; border-radius: 10px;">
+                    <div class="icon-large">📢</div>
+                    <h4>行銷部門</h4>
+                    <p>主導版位分配<br>內部競爭激烈</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="important">
+            <strong>內部限制理解：</strong>我個人猜測，他們可能每個PM有限的版位，因為他們除了PM，還有行銷，所以他們要跟行銷去爭取版位，行銷那邊內部一定會爭執，PM跟行銷一定會爭，所以反正我可能就只有兩個位。
+        </div>
+
+        <div class="chart-container">
+            <h3>📋 行動計畫時程表</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>時程</th>
+                        <th>行動項目</th>
+                        <th>負責人</th>
+                        <th>預期結果</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>本週</strong></td>
+                        <td>七夕檔期策略討論</td>
+                        <td>業務團隊</td>
+                        <td>確認促銷方案</td>
+                    </tr>
+                    <tr>
+                        <td><strong>8月底</strong></td>
+                        <td>室內香氛類別提品</td>
+                        <td>商品團隊</td>
+                        <td>增加曝光商品數</td>
+                    </tr>
+                    <tr>
+                        <td><strong>9月</strong></td>
+                        <td>小夜燈重新分類</td>
+                        <td>營運團隊</td>
+                        <td>進入3C家電類別</td>
+                    </tr>
+                    <tr>
+                        <td><strong>10月1日</strong></td>
+                        <td>新品上線推廣</td>
+                        <td>行銷團隊</td>
+                        <td>建立初期銷量</td>
+                    </tr>
+                    <tr>
+                        <td><strong>長期</strong></td>
+                        <td>定期PM會議機制</td>
+                        <td>業務主管</td>
+                        <td>持續優化合作</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="process-flow">
+            <div class="flow-step">
+                <div class="icon-large">🎯</div>
+                <h4>短期目標</h4>
+                <p>七夕檔期<br>版位爭取</p>
+            </div>
+            <div class="flow-arrow">➡️</div>
+            <div class="flow-step">
+                <div class="icon-large">📊</div>
+                <h4>中期目標</h4>
+                <p>商品重分類<br>曝光優化</p>
+            </div>
+            <div class="flow-arrow">➡️</div>
+            <div class="flow-step">
+                <div class="icon-large">🚀</div>
+                <h4>長期目標</h4>
+                <p>建立穩定<br>合作機制</p>
+            </div>
+        </div>
+
+        <p style="text-align: center; margin-top: 40px; color: #666; font-style: italic;">
+            會議結論：需要更積極主動的溝通策略，並建立系統性的新品推廣流程。
+        </p>
+    </div>
+</body>
+</html>
