@@ -1,0 +1,154 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="1200" height="900" fill="#FAF7F0"/>
+  
+  <!-- 標題 -->
+  <text x="600" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#8B4513">
+    洛克菲勒成功哲學金字塔
+  </text>
+  
+  <!-- 副標題 -->
+  <text x="600" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#696969">
+    38封信構建的系統化成功體系
+  </text>
+  
+  <!-- 金字塔第四層：領導智慧 (31-38封) -->
+  <polygon points="500,200 700,200 650,250 550,250" fill="#B22222" stroke="#8B4513" stroke-width="3"/>
+  <text x="600" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+    IV. 領導智慧
+  </text>
+  <text x="600" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+    第31-38封信
+  </text>
+  
+  <!-- 第四層詳細內容 -->
+  <rect x="450" y="170" width="300" height="60" fill="white" stroke="#B22222" stroke-width="2" rx="5"/>
+  <text x="600" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#B22222">
+    🎯 目標管理 👥 人才配置 🌍 社會責任
+  </text>
+  
+  <!-- 金字塔第三層：實戰技巧 (21-30封) -->
+  <polygon points="450,300 750,300 700,350 500,350" fill="#228B22" stroke="#8B4513" stroke-width="3"/>
+  <text x="600" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">
+    III. 實戰技巧
+  </text>
+  <text x="600" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white">
+    第21-30封信
+  </text>
+  
+  <!-- 第三層詳細內容 -->
+  <rect x="380" y="270" width="440" height="60" fill="white" stroke="#228B22" stroke-width="2" rx="5"/>
+  <text x="600" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#228B22">
+    ⚔️ 競爭策略 🤝 合作藝術 ⏰ 資源管理 💪 實力建立
+  </text>
+  
+  <!-- 金字塔第二層：智慧策略 (11-20封) -->
+  <polygon points="400,400 800,400 750,450 450,450" fill="#DAA520" stroke="#8B4513" stroke-width="3"/>
+  <text x="600" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">
+    II. 智慧策略
+  </text>
+  <text x="600" y="440" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="white">
+    第11-20封信
+  </text>
+  
+  <!-- 第二層詳細內容 -->
+  <rect x="320" y="370" width="560" height="60" fill="white" stroke="#DAA520" stroke-width="2" rx="5"/>
+  <text x="600" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#DAA520">
+    💰 財富觀念 🎯 機會把握 ⚖️ 價值交換 🧠 智慧運用 🎲 風險管理
+  </text>
+  
+  <!-- 金字塔第一層：心態基礎 (1-10封) -->
+  <polygon points="350,500 850,500 800,550 400,550" fill="#8B4513" stroke="#654321" stroke-width="3"/>
+  <text x="600" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white">
+    I. 心態基礎
+  </text>
+  <text x="600" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="white">
+    第1-10封信
+  </text>
+  
+  <!-- 第一層詳細內容 -->
+  <rect x="250" y="470" width="700" height="60" fill="white" stroke="#8B4513" stroke-width="2" rx="5"/>
+  <text x="600" y="490" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#8B4513">
+    🚀 積極主動 💪 堅持不懈 💎 自信自立 🎯 命運自主 🔥 信心建立
+  </text>
+  
+  <!-- 核心信念圓圈 -->
+  <circle cx="600" cy="650" r="80" fill="#DAA520" stroke="#8B4513" stroke-width="4"/>
+  <text x="600" y="635" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#8B4513">
+    核心信念
+  </text>
+  <text x="600" y="655" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#8B4513">
+    我奮鬥
+  </text>
+  <text x="600" y="675" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#8B4513">
+    我成功
+  </text>
+  
+  <!-- 層次關係箭頭 -->
+  <defs>
+    <marker id="upArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto" fill="#8B4513">
+      <polygon points="0 0, 10 3.5, 0 7"/>
+    </marker>
+  </defs>
+  
+  <!-- 從基礎到策略 -->
+  <path d="M600,470 L600,430" stroke="#8B4513" stroke-width="4" fill="none" marker-end="url(#upArrow)"/>
+  <!-- 從策略到技巧 -->
+  <path d="M600,370 L600,330" stroke="#8B4513" stroke-width="4" fill="none" marker-end="url(#upArrow)"/>
+  <!-- 從技巧到領導 -->
+  <path d="M600,270 L600,230" stroke="#8B4513" stroke-width="4" fill="none" marker-end="url(#upArrow)"/>
+  
+  <!-- 側邊說明：建構原理 -->
+  <rect x="50" y="300" width="200" height="200" fill="#FFF8DC" stroke="#DAA520" stroke-width="2" rx="10"/>
+  <text x="150" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#8B4513">
+    📐 建構原理
+  </text>
+  <text x="70" y="360" font-family="Arial, sans-serif" font-size="12" fill="#8B4513">
+    • <tspan font-weight="bold">穩固基礎：</tspan>心態決定一切
+  </text>
+  <text x="70" y="380" font-family="Arial, sans-serif" font-size="12" fill="#8B4513">
+    • <tspan font-weight="bold">智慧策略：</tspan>方法指導行動
+  </text>
+  <text x="70" y="400" font-family="Arial, sans-serif" font-size="12" fill="#8B4513">
+    • <tspan font-weight="bold">實戰技巧：</tspan>能力轉化結果
+  </text>
+  <text x="70" y="420" font-family="Arial, sans-serif" font-size="12" fill="#8B4513">
+    • <tspan font-weight="bold">領導智慧：</tspan>成就更大事業
+  </text>
+  <text x="70" y="450" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#B22222">
+    ⚠️ 不可跳躍，必須層層遞進
+  </text>
+  
+  <!-- 側邊說明：38封信分布 -->
+  <rect x="950" y="300" width="200" height="200" fill="#F0FFF0" stroke="#228B22" stroke-width="2" rx="10"/>
+  <text x="1050" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#8B4513">
+    📊 信件分布
+  </text>
+  <text x="970" y="360" font-family="Arial, sans-serif" font-size="12" fill="#8B4513">
+    • <tspan fill="#8B4513">心態基礎：</tspan>10封信
+  </text>
+  <text x="970" y="380" font-family="Arial, sans-serif" font-size="12" fill="#8B4513">
+    • <tspan fill="#DAA520">智慧策略：</tspan>10封信
+  </text>
+  <text x="970" y="400" font-family="Arial, sans-serif" font-size="12" fill="#8B4513">
+    • <tspan fill="#228B22">實戰技巧：</tspan>10封信
+  </text>
+  <text x="970" y="420" font-family="Arial, sans-serif" font-size="12" fill="#8B4513">
+    • <tspan fill="#B22222">領導智慧：</tspan>8封信
+  </text>
+  <text x="970" y="450" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#228B22">
+    ✓ 系統化設計，循序漸進
+  </text>
+  
+  <!-- 底部核心訊息 -->
+  <rect x="200" y="780" width="800" height="80" fill="#E6E6FA" stroke="#8B4513" stroke-width="2" rx="15"/>
+  <text x="600" y="810" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#8B4513">
+    🏗️ 成功需要系統化建構
+  </text>
+  <text x="600" y="835" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#8B4513">
+    每一層都是下一層的基礎，缺一不可
+  </text>
+  <text x="600" y="855" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#696969">
+    38封信 = 一套完整的成功教育體系
+  </text>
+</svg>

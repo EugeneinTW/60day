@@ -1,0 +1,144 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="1200" height="900" fill="#FAF7F0"/>
+  
+  <!-- 標題 -->
+  <text x="600" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#8B4513">
+    競爭與合作的平衡藝術
+  </text>
+  
+  <!-- 副標題 -->
+  <text x="600" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#696969">
+    洛克菲勒的商業智慧：既競爭又合作的策略思維
+  </text>
+  
+  <!-- 天平基座 -->
+  <rect x="550" y="500" width="100" height="20" fill="#8B4513" rx="5"/>
+  <rect x="590" y="520" width="20" height="100" fill="#8B4513"/>
+  
+  <!-- 天平橫杆 -->
+  <rect x="300" y="390" width="600" height="8" fill="#8B4513" rx="4"/>
+  <circle cx="600" cy="394" r="10" fill="#DAA520" stroke="#8B4513" stroke-width="2"/>
+  
+  <!-- 左盤：競爭策略 -->
+  <ellipse cx="400" cy="350" rx="120" ry="40" fill="#FFE4E1" stroke="#B22222" stroke-width="3"/>
+  <text x="400" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#B22222">
+    ⚔️ 競爭策略
+  </text>
+  <text x="400" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#B22222">
+    Market Dominance
+  </text>
+  
+  <!-- 競爭策略詳細內容 -->
+  <rect x="250" y="180" width="300" height="140" fill="#FFF5F5" stroke="#B22222" stroke-width="2" rx="10"/>
+  <text x="400" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#B22222">
+    🎯 競爭要素
+  </text>
+  <text x="270" y="235" font-family="Arial, sans-serif" font-size="12" fill="#B22222">• 控制關鍵資源（石油管道）</text>
+  <text x="270" y="255" font-family="Arial, sans-serif" font-size="12" fill="#B22222">• 價格戰略運用</text>
+  <text x="270" y="275" font-family="Arial, sans-serif" font-size="12" fill="#B22222">• 技術創新領先</text>
+  <text x="270" y="295" font-family="Arial, sans-serif" font-size="12" fill="#B22222">• 市場份額最大化</text>
+  
+  <!-- 右盤：合作策略 -->
+  <ellipse cx="800" cy="350" rx="120" ry="40" fill="#F0FFF0" stroke="#228B22" stroke-width="3"/>
+  <text x="800" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#228B22">
+    🤝 合作策略
+  </text>
+  <text x="800" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#228B22">
+    Strategic Alliance
+  </text>
+  
+  <!-- 合作策略詳細內容 -->
+  <rect x="650" y="180" width="300" height="140" fill="#F0FFF0" stroke="#228B22" stroke-width="2" rx="10"/>
+  <text x="800" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#228B22">
+    🤝 合作要素
+  </text>
+  <text x="670" y="235" font-family="Arial, sans-serif" font-size="12" fill="#228B22">• 整合產業鏈條</text>
+  <text x="670" y="255" font-family="Arial, sans-serif" font-size="12" fill="#228B22">• 聯盟共享資源</text>
+  <text x="670" y="275" font-family="Arial, sans-serif" font-size="12" fill="#228B22">• 互利共贏模式</text>
+  <text x="670" y="295" font-family="Arial, sans-serif" font-size="12" fill="#228B22">• 長期戰略夥伴</text>
+  
+  <!-- 連結線條 -->
+  <path d="M400,320 L400,350" stroke="#B22222" stroke-width="3" fill="none"/>
+  <path d="M800,320 L800,350" stroke="#228B22" stroke-width="3" fill="none"/>
+  
+  <!-- 平衡點說明 -->
+  <circle cx="600" cy="300" r="80" fill="white" stroke="#8B4513" stroke-width="4"/>
+  <text x="600" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#8B4513">
+    ⚖️ 平衡點
+  </text>
+  <text x="600" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#8B4513">
+    智慧選擇
+  </text>
+  <text x="600" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#8B4513">
+    時機判斷
+  </text>
+  
+  <!-- 情境分析框架 -->
+  <rect x="100" y="650" width="500" height="200" fill="#FFF8DC" stroke="#DAA520" stroke-width="3" rx="15"/>
+  <text x="350" y="680" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#8B4513">
+    📊 情境分析框架
+  </text>
+  
+  <!-- 競爭情境 -->
+  <rect x="120" y="700" width="200" height="80" fill="#FFE4E1" stroke="#B22222" stroke-width="2" rx="5"/>
+  <text x="220" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#B22222">
+    適合競爭時機
+  </text>
+  <text x="130" y="740" font-family="Arial, sans-serif" font-size="11" fill="#B22222">• 市場擴張期</text>
+  <text x="130" y="755" font-family="Arial, sans-serif" font-size="11" fill="#B22222">• 技術突破期</text>
+  <text x="130" y="770" font-family="Arial, sans-serif" font-size="11" fill="#B22222">• 資源稀缺期</text>
+  
+  <!-- 合作情境 -->
+  <rect x="380" y="700" width="200" height="80" fill="#F0FFF0" stroke="#228B22" stroke-width="2" rx="5"/>
+  <text x="480" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#228B22">
+    適合合作時機
+  </text>
+  <text x="390" y="740" font-family="Arial, sans-serif" font-size="11" fill="#228B22">• 行業整合期</text>
+  <text x="390" y="755" font-family="Arial, sans-serif" font-size="11" fill="#228B22">• 風險分散期</text>
+  <text x="390" y="770" font-family="Arial, sans-serif" font-size="11" fill="#228B22">• 規模經濟期</text>
+  
+  <!-- 實際案例分析 -->
+  <rect x="700" y="650" width="400" height="200" fill="#E6E6FA" stroke="#8B4513" stroke-width="3" rx="15"/>
+  <text x="900" y="680" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#8B4513">
+    💼 洛克菲勒實戰案例
+  </text>
+  
+  <!-- 標準石油案例 -->
+  <rect x="720" y="700" width="360" height="60" fill="white" stroke="#8B4513" stroke-width="1" rx="5"/>
+  <text x="900" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#8B4513">
+    🏭 標準石油公司策略
+  </text>
+  <text x="730" y="740" font-family="Arial, sans-serif" font-size="11" fill="#B22222">競爭：價格戰消滅小競爭者</text>
+  <text x="730" y="755" font-family="Arial, sans-serif" font-size="11" fill="#228B22">合作：收購整合形成聯盟</text>
+  
+  <!-- 結果說明 -->
+  <rect x="720" y="780" width="360" height="60" fill="white" stroke="#DAA520" stroke-width="2" rx="5"/>
+  <text x="900" y="800" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#DAA520">
+    🎯 策略結果
+  </text>
+  <text x="730" y="820" font-family="Arial, sans-serif" font-size="11" fill="#8B4513">控制90%美國石油精煉市場</text>
+  <text x="730" y="835" font-family="Arial, sans-serif" font-size="11" fill="#8B4513">建立了持續30年的市場主導地位</text>
+  
+  <!-- 核心智慧 -->
+  <rect x="200" y="450" width="800" height="120" fill="white" stroke="#8B4513" stroke-width="4" rx="20"/>
+  <text x="600" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#8B4513">
+    🧠 洛克菲勒商業智慧
+  </text>
+  <text x="600" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#B22222">
+    "競爭是為了獲得主導權"
+  </text>
+  <text x="600" y="550" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#228B22">
+    "合作是為了確保長期利益"
+  </text>
+  
+  <!-- 箭頭指示 -->
+  <defs>
+    <marker id="balanceArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto" fill="#8B4513">
+      <polygon points="0 0, 10 3.5, 0 7"/>
+    </marker>
+  </defs>
+  
+  <path d="M520,300 Q550,280 580,300" stroke="#8B4513" stroke-width="2" fill="none" marker-end="url(#balanceArrow)"/>
+  <path d="M680,300 Q650,280 620,300" stroke="#8B4513" stroke-width="2" fill="none" marker-end="url(#balanceArrow)"/>
+</svg>

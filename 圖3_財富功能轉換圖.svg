@@ -1,0 +1,195 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="1200" height="900" fill="#FAF7F0"/>
+  
+  <!-- 標題 -->
+  <text x="600" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#8B4513">
+    財富功能轉換：手段vs目的
+  </text>
+  
+  <!-- 副標題 -->
+  <text x="600" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#696969">
+    洛克菲勒的財富智慧：讓金錢為你服務
+  </text>
+  
+  <!-- 共同起點：勤奮工作 -->
+  <circle cx="600" cy="300" r="50" fill="#8B4513" stroke="#654321" stroke-width="4"/>
+  <text x="600" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+    勤奮工作
+  </text>
+  <text x="600" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white">
+    共同起點
+  </text>
+  
+  <text x="600" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#8B4513">
+    "財富只是勤奮的副產品"
+  </text>
+  
+  <!-- 上路徑：正確的財富觀 -->
+  <g id="correct-path">
+    <!-- 路徑箭頭 -->
+    <defs>
+      <marker id="greenArrow" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto" fill="#228B22">
+        <polygon points="0 0, 12 4, 0 8"/>
+      </marker>
+    </defs>
+    
+    <path d="M550,250 Q450,200 300,200" stroke="#228B22" stroke-width="6" fill="none" marker-end="url(#greenArrow)"/>
+    <text x="425" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#228B22">
+      正確路徑
+    </text>
+    
+    <!-- 第一階段：獲得財富 -->
+    <rect x="150" y="150" width="150" height="100" fill="#F0FFF0" stroke="#228B22" stroke-width="3" rx="10"/>
+    <text x="225" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#228B22">
+      💰 獲得財富
+    </text>
+    <text x="225" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#228B22">
+      持續累積
+    </text>
+    <text x="225" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#228B22">
+      理性投資
+    </text>
+    
+    <!-- 箭頭到自由 -->
+    <path d="M150,200 Q75,200 75,300 Q75,400 150,400" stroke="#228B22" stroke-width="4" fill="none" marker-end="url(#greenArrow)"/>
+    
+    <!-- 最終目標：自由 -->
+    <rect x="150" y="350" width="150" height="100" fill="#E6FFE6" stroke="#228B22" stroke-width="3" rx="10"/>
+    <text x="225" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#228B22">
+      🗽 獲得自由
+    </text>
+    <text x="225" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#228B22">
+      時間自由
+    </text>
+    <text x="225" y="425" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#228B22">
+      選擇自由
+    </text>
+    
+    <!-- 正確觀念說明 -->
+    <rect x="50" y="500" width="300" height="120" fill="#F0FFF0" stroke="#228B22" stroke-width="2" rx="8"/>
+    <text x="200" y="530" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#228B22">
+      ✅ 正確財富觀
+    </text>
+    <text x="70" y="555" font-family="Arial, sans-serif" font-size="12" fill="#228B22">
+      • 財富是獲得自由的手段
+    </text>
+    <text x="70" y="575" font-family="Arial, sans-serif" font-size="12" fill="#228B22">
+      • 讓金錢為你工作
+    </text>
+    <text x="70" y="595" font-family="Arial, sans-serif" font-size="12" fill="#228B22">
+      • 購買時間和選擇權
+    </text>
+    <text x="70" y="615" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#228B22">
+      結果：持續的自由和成長
+    </text>
+  </g>
+  
+  <!-- 下路徑：錯誤的財富觀 -->
+  <g id="wrong-path">
+    <defs>
+      <marker id="redArrow" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto" fill="#B22222">
+        <polygon points="0 0, 12 4, 0 8"/>
+      </marker>
+    </defs>
+    
+    <path d="M650,350 Q750,400 900,400" stroke="#B22222" stroke-width="6" fill="none" marker-end="url(#redArrow)"/>
+    <text x="775" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#B22222">
+      錯誤路徑
+    </text>
+    
+    <!-- 第一階段：炫耀消費 -->
+    <rect x="900" y="350" width="150" height="100" fill="#FFE4E1" stroke="#B22222" stroke-width="3" rx="10"/>
+    <text x="975" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#B22222">
+      💸 炫耀消費
+    </text>
+    <text x="975" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#B22222">
+      奢侈品
+    </text>
+    <text x="975" y="425" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#B22222">
+      地位象徵
+    </text>
+    
+    <!-- 箭頭到束縛 -->
+    <path d="M1050,400 Q1125,400 1125,300 Q1125,200 1050,200" stroke="#B22222" stroke-width="4" fill="none" marker-end="url(#redArrow)"/>
+    
+    <!-- 最終結果：束縛 -->
+    <rect x="900" y="150" width="150" height="100" fill="#FFCCCB" stroke="#B22222" stroke-width="3" rx="10"/>
+    <text x="975" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#B22222">
+      ⛓️ 成為奴隸
+    </text>
+    <text x="975" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#B22222">
+      金錢束縛
+    </text>
+    <text x="975" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#B22222">
+      失去自由
+    </text>
+    
+    <!-- 錯誤觀念說明 -->
+    <rect x="850" y="500" width="300" height="120" fill="#FFE4E1" stroke="#B22222" stroke-width="2" rx="8"/>
+    <text x="1000" y="530" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#B22222">
+      ❌ 錯誤財富觀
+    </text>
+    <text x="870" y="555" font-family="Arial, sans-serif" font-size="12" fill="#B22222">
+      • 財富是炫耀的工具
+    </text>
+    <text x="870" y="575" font-family="Arial, sans-serif" font-size="12" fill="#B22222">
+      • 為金錢而工作
+    </text>
+    <text x="870" y="595" font-family="Arial, sans-serif" font-size="12" fill="#B22222">
+      • 追求物質享受
+    </text>
+    <text x="870" y="615" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#B22222">
+      結果：被金錢和物欲束縛
+    </text>
+  </g>
+  
+  <!-- 中央對比核心 -->
+  <rect x="400" y="450" width="400" height="150" fill="white" stroke="#8B4513" stroke-width="3" rx="15"/>
+  <text x="600" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#8B4513">
+    💡 洛克菲勒財富智慧
+  </text>
+  
+  <text x="600" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#228B22">
+    "不為金錢之奴，讓金錢為你服務"
+  </text>
+  
+  <text x="600" y="550" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#8B4513">
+    財富的目的是買到自由，不是奢侈品
+  </text>
+  
+  <text x="600" y="575" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#696969">
+    —— 第18封信核心觀點
+  </text>
+  
+  <!-- 功能對比表 -->
+  <rect x="450" y="650" width="300" height="200" fill="#FFF8DC" stroke="#DAA520" stroke-width="2" rx="10"/>
+  <text x="600" y="680" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#8B4513">
+    📊 財富功能對比
+  </text>
+  
+  <!-- 表格標題 -->
+  <text x="500" y="710" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#228B22">
+    正確使用
+  </text>
+  <text x="650" y="710" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#B22222">
+    錯誤使用
+  </text>
+  
+  <!-- 分隔線 -->
+  <line x1="450" y1="720" x2="750" y2="720" stroke="#8B4513" stroke-width="1"/>
+  <line x1="600" y1="700" x2="600" y2="840" stroke="#8B4513" stroke-width="1"/>
+  
+  <!-- 對比內容 -->
+  <text x="470" y="740" font-family="Arial, sans-serif" font-size="11" fill="#228B22">• 投資增值</text>
+  <text x="470" y="760" font-family="Arial, sans-serif" font-size="11" fill="#228B22">• 購買時間</text>
+  <text x="470" y="780" font-family="Arial, sans-serif" font-size="11" fill="#228B22">• 創造機會</text>
+  <text x="470" y="800" font-family="Arial, sans-serif" font-size="11" fill="#228B22">• 幫助他人</text>
+  <text x="470" y="820" font-family="Arial, sans-serif" font-size="11" fill="#228B22">• 獲得自由</text>
+  
+  <text x="620" y="740" font-family="Arial, sans-serif" font-size="11" fill="#B22222">• 炫耀消費</text>
+  <text x="620" y="760" font-family="Arial, sans-serif" font-size="11" fill="#B22222">• 奢侈享受</text>
+  <text x="620" y="780" font-family="Arial, sans-serif" font-size="11" fill="#B22222">• 地位競爭</text>
+  <text x="620" y="800" font-family="Arial, sans-serif" font-size="11" fill="#B22222">• 物質追求</text>
+  <text x="620" y="820" font-family="Arial, sans-serif" font-size="11" fill="#B22222">• 成為奴隸</text>
+</svg>

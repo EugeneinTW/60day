@@ -1,0 +1,72 @@
+<svg width="1200" height="900" xmlns="http://www.w3.org/2000/svg">
+ <!-- 背景 -->
+ <!-- 標題 -->
+ <!-- 副標題 -->
+ <!-- 左側山峰：富二代起點 -->
+ <!-- 右側山峰：窮人起點 -->
+ <!-- 中央核心訊息 -->
+ <!-- 統計數據框 -->
+ <!-- 箭頭指示 -->
+ <defs>
+  <marker fill="#8B4513" orient="auto" refY="3.5" refX="9" markerHeight="7" markerWidth="10" id="arrow">
+   <polygon id="svg_1" points="0 0, 10 3.5, 0 7"/>
+  </marker>
+ </defs>
+ <!-- 底部總結 -->
+ <g>
+  <title>Layer 1</title>
+  <rect id="svg_2" fill="#FAF7F0" height="900" width="1200"/>
+  <text id="svg_3" fill="#8B4513" font-weight="bold" font-size="36" font-family="Arial, sans-serif" text-anchor="middle" y="80" x="600">命運自主論：起點不決定終點</text>
+  <text id="svg_4" fill="#696969" font-size="18" font-family="Arial, sans-serif" text-anchor="middle" y="120" x="600">洛克菲勒的核心信念：行動比出身更重要</text>
+  <g id="rich-start">
+   <!-- 山峰輪廓 -->
+   <path id="svg_5" stroke-width="3" stroke="#8B4513" fill="#DAA520" d="m50,500l100,-300l100,100l50,200l-250,0z"/>
+   <text id="svg_6" fill="#8B4513" font-weight="bold" font-size="16" font-family="Arial, sans-serif" text-anchor="middle" y="180" x="175">山頂起點</text>
+   <text id="svg_7" fill="#8B4513" font-size="14" font-family="Arial, sans-serif" text-anchor="middle" y="200" x="175">富二代</text>
+   <!-- 下滑路徑 -->
+   <path id="svg_8" stroke-dasharray="5,5" fill="none" stroke-width="4" stroke="#B22222" d="m200,250q50,100 150,200"/>
+   <text id="svg_9" fill="#B22222" font-size="12" font-family="Arial, sans-serif" y="340" x="280">逐漸衰落</text>
+   <!-- 終點 -->
+   <circle id="svg_10" fill="#B22222" r="15" cy="450" cx="350"/>
+   <text id="svg_11" fill="#B22222" font-size="12" font-family="Arial, sans-serif" text-anchor="middle" y="480" x="350">失敗終點</text>
+  </g>
+  <g id="poor-start">
+   <!-- 山腳起點 -->
+   <circle id="svg_12" fill="#696969" r="20" cy="500" cx="950"/>
+   <text id="svg_13" fill="#8B4513" font-weight="bold" font-size="16" font-family="Arial, sans-serif" text-anchor="middle" y="540" x="950">山腳起點</text>
+   <text id="svg_14" fill="#8B4513" font-size="14" font-family="Arial, sans-serif" text-anchor="middle" y="560" x="950">窮人家庭</text>
+   <!-- 攀登路徑 -->
+   <path id="svg_15" fill="none" stroke-width="6" stroke="#228B22" d="m930,480q-80,-80 -130,-130q-50,-50 -100,-100q-50,-50 -100,-70"/>
+   <!-- 路徑標註 -->
+   <text id="svg_16" transform="rotate(-20 800 380)" fill="#228B22" font-size="12" font-family="Arial, sans-serif" y="380" x="800">持續奮鬥</text>
+   <text transform="rotate(-25 732 271)" id="svg_17" fill="#228B22" font-size="12" font-family="Arial, sans-serif" y="271" x="732">努力攀登</text>
+   <!-- 成功山頂 -->
+   <path id="svg_18" stroke-width="3" stroke="#8B4513" fill="#DAA520" d="m500,500l100,-350l100,50l50,300l-250,0z"/>
+   <text id="svg_19" fill="#8B4513" font-weight="bold" font-size="16" font-family="Arial, sans-serif" text-anchor="middle" y="140" x="625">成功山頂</text>
+   <!-- 成功標記 -->
+   <circle id="svg_20" fill="#228B22" r="20" cy="180" cx="600"/>
+   <text id="svg_21" fill="white" font-weight="bold" font-size="14" font-family="Arial, sans-serif" text-anchor="middle" y="188" x="600">✓</text>
+  </g>
+  <rect id="svg_22" rx="15" stroke-width="3" stroke="#8B4513" fill="white" height="200" width="500" y="501" x="364"/>
+  <text id="svg_23" fill="#8B4513" font-weight="bold" font-size="24" font-family="Arial, sans-serif" text-anchor="middle" y="543" x="609">🎯 洛克菲勒核心發現</text>
+  <text id="svg_24" fill="#B22222" font-size="16" font-family="Arial, sans-serif" text-anchor="middle" y="578" x="609">麻州統計：17個富二代，0個保持富有</text>
+  <text id="svg_25" fill="#228B22" font-weight="bold" font-size="18" font-family="Arial, sans-serif" text-anchor="middle" y="614" x="610">"我們的命運是由我們的行動決定的"</text>
+  <text id="svg_26" fill="#8B4513" font-size="16" font-family="Arial, sans-serif" text-anchor="middle" y="644" x="610">而並不是我們的出身</text>
+  <text id="svg_27" fill="#696969" font-size="14" font-family="Arial, sans-serif" text-anchor="middle" y="674" x="610">—— 約翰·D·洛克菲勒</text>
+  <rect id="svg_28" rx="10" stroke-width="2" stroke="#DAA520" fill="#FFF8DC" height="120" width="300" y="600" x="100"/>
+  <text id="svg_29" fill="#8B4513" font-weight="bold" font-size="16" font-family="Arial, sans-serif" text-anchor="middle" y="630" x="250">❌ 富二代現實</text>
+  <text id="svg_30" fill="#B22222" font-size="12" font-family="Arial, sans-serif" y="655" x="120">• 17個富二代樣本</text>
+  <text id="svg_31" fill="#B22222" font-size="12" font-family="Arial, sans-serif" y="675" x="120">• 離世時0個還是富翁</text>
+  <text id="svg_32" fill="#B22222" font-size="12" font-family="Arial, sans-serif" y="695" x="120">• 證明：財富不能世襲</text>
+  <rect id="svg_33" rx="10" stroke-width="2" stroke="#228B22" fill="#F0FFF0" height="120" width="300" y="600" x="800"/>
+  <text id="svg_34" fill="#8B4513" font-weight="bold" font-size="16" font-family="Arial, sans-serif" text-anchor="middle" y="630" x="950">✅ 奮鬥者現實</text>
+  <text id="svg_35" fill="#228B22" font-size="12" font-family="Arial, sans-serif" y="655" x="820">• 洛克菲勒週薪5元起步</text>
+  <text id="svg_36" fill="#228B22" font-size="12" font-family="Arial, sans-serif" y="675" x="820">• 建立石油王國</text>
+  <text id="svg_37" fill="#228B22" font-size="12" font-family="Arial, sans-serif" y="695" x="820">• 證明：行動創造命運</text>
+  <path id="svg_38" marker-end="url(#arrow)" fill="none" stroke-width="3" stroke="#8B4513" d="m300,350q50,-70 100,0"/>
+  <path id="svg_39" marker-end="url(#arrow)" fill="none" stroke-width="3" stroke="#8B4513" d="m800,350q-50,-70 -100,0"/>
+  <rect id="svg_40" rx="15" stroke-width="2" stroke="#8B4513" fill="#E6E6FA" height="80" width="800" y="780" x="200"/>
+  <text id="svg_41" fill="#8B4513" font-weight="bold" font-size="20" font-family="Arial, sans-serif" text-anchor="middle" y="810" x="600">💡 核心洞察</text>
+  <text id="svg_42" fill="#8B4513" font-size="16" font-family="Arial, sans-serif" text-anchor="middle" y="840" x="600">起點的高低不決定人生的成敗，持續的行動和正確的選擇才是關鍵</text>
+ </g>
+</svg>
