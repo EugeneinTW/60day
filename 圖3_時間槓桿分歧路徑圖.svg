@@ -1,0 +1,143 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="1200" height="900" fill="#F8FAFC"/>
+  
+  <!-- 標題 -->
+  <text x="600" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#1E3A8A">
+    時間槓桿：兩條不同的財富路徑
+  </text>
+  
+  <!-- 副標題 -->
+  <text x="600" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#6B7280">
+    選擇決定未來：線性收入 vs 指數收入
+  </text>
+  
+  <!-- 起點人物 -->
+  <circle cx="600" cy="500" r="40" fill="#6B7280" stroke="#ffffff" stroke-width="3"/>
+  <text x="600" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+    YOU
+  </text>
+  
+  <text x="600" y="570" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#374151">
+    人生分叉點
+  </text>
+  <text x="600" y="595" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#6B7280">
+    每個人都面臨的選擇
+  </text>
+  
+  <!-- 左路徑：出租時間 (紅色路徑) -->
+  <path d="M560,480 Q400,350 250,250" stroke="#DC2626" stroke-width="6" fill="none" marker-end="url(#redArrow)"/>
+  
+  <!-- 左終點：受限的生活 -->
+  <rect x="150" y="180" width="200" height="140" fill="#FEE2E2" stroke="#DC2626" stroke-width="3" rx="15"/>
+  <text x="250" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#DC2626">
+    ❌ 出租時間路徑
+  </text>
+  
+  <text x="250" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#7F1D1D">
+    線性收入模式
+  </text>
+  <text x="170" y="265" font-family="Arial, sans-serif" font-size="12" fill="#374151">
+    • 時薪 × 工作時數
+  </text>
+  <text x="170" y="285" font-family="Arial, sans-serif" font-size="12" fill="#374151">
+    • 不工作就沒收入
+  </text>
+  <text x="170" y="305" font-family="Arial, sans-serif" font-size="12" fill="#374151">
+    • 時間有限制約
+  </text>
+  
+  <!-- 右路徑：擁有資產 (綠色路徑) -->
+  <path d="M640,480 Q800,350 950,250" stroke="#059669" stroke-width="6" fill="none" marker-end="url(#greenArrow)"/>
+  
+  <!-- 右終點：自由的生活 -->
+  <rect x="850" y="180" width="200" height="140" fill="#D1FAE5" stroke="#059669" stroke-width="3" rx="15"/>
+  <text x="950" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#059669">
+    ✅ 資產擁有路徑
+  </text>
+  
+  <text x="950" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#047857">
+    指數收入模式
+  </text>
+  <text x="870" y="265" font-family="Arial, sans-serif" font-size="12" fill="#374151">
+    • 資產 × 複利效應
+  </text>
+  <text x="870" y="285" font-family="Arial, sans-serif" font-size="12" fill="#374151">
+    • 睡覺時也賺錢
+  </text>
+  <text x="870" y="305" font-family="Arial, sans-serif" font-size="12" fill="#374151">
+    • 時間自由無限
+  </text>
+  
+  <!-- 箭頭標記定義 -->
+  <defs>
+    <marker id="redArrow" markerWidth="15" markerHeight="10" refX="12" refY="5" orient="auto">
+      <polygon points="0 0, 15 5, 0 10" fill="#DC2626"/>
+    </marker>
+    <marker id="greenArrow" markerWidth="15" markerHeight="10" refX="12" refY="5" orient="auto">
+      <polygon points="0 0, 15 5, 0 10" fill="#059669"/>
+    </marker>
+  </defs>
+  
+  <!-- 路徑標註 -->
+  <rect x="320" y="350" width="140" height="50" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2" rx="8"/>
+  <text x="390" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#F59E0B">
+    傳統就業路徑
+  </text>
+  <text x="390" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#92400E">
+    1:1 時間交換
+  </text>
+  
+  <rect x="740" y="350" width="140" height="50" fill="#E0F2FE" stroke="#0EA5E9" stroke-width="2" rx="8"/>
+  <text x="810" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#0EA5E9">
+    創業投資路徑
+  </text>
+  <text x="810" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#0C4A6E">
+    1:∞ 槓桿放大
+  </text>
+  
+  <!-- 複利效應圖表 -->
+  <rect x="200" y="650" width="800" height="200" fill="white" stroke="#E5E7EB" stroke-width="2" rx="10"/>
+  <text x="600" y="680" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#374151">
+    📈 長期結果對比：複利的力量
+  </text>
+  
+  <!-- X軸時間 -->
+  <line x1="250" y1="820" x2="950" y2="820" stroke="#6B7280" stroke-width="2"/>
+  <text x="250" y="840" font-family="Arial, sans-serif" font-size="12" fill="#6B7280">0年</text>
+  <text x="450" y="840" font-family="Arial, sans-serif" font-size="12" fill="#6B7280">10年</text>
+  <text x="650" y="840" font-family="Arial, sans-serif" font-size="12" fill="#6B7280">20年</text>
+  <text x="850" y="840" font-family="Arial, sans-serif" font-size="12" fill="#6B7280">30年</text>
+  
+  <!-- Y軸財富 -->
+  <line x1="250" y1="820" x2="250" y2="720" stroke="#6B7280" stroke-width="2"/>
+  <text x="230" y="725" font-family="Arial, sans-serif" font-size="12" fill="#6B7280" text-anchor="end">高</text>
+  <text x="230" y="770" font-family="Arial, sans-serif" font-size="12" fill="#6B7280" text-anchor="end">中</text>
+  <text x="230" y="815" font-family="Arial, sans-serif" font-size="12" fill="#6B7280" text-anchor="end">低</text>
+  
+  <!-- 線性增長曲線 (紅色) -->
+  <path d="M250,810 L450,790 L650,770 L850,750" stroke="#DC2626" stroke-width="4" fill="none"/>
+  <text x="880" y="750" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#DC2626">出租時間</text>
+  
+  <!-- 指數增長曲線 (綠色) -->
+  <path d="M250,810 L450,800 L650,760 L850,730" stroke="#059669" stroke-width="4" fill="none"/>
+  <text x="880" y="730" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#059669">擁有資產</text>
+  
+  <!-- 分歧點標註 -->
+  <circle cx="650" cy="765" r="8" fill="#F59E0B" stroke="white" stroke-width="2"/>
+  <text x="680" y="770" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#F59E0B">
+    分歧加速點
+  </text>
+  
+  <!-- 核心主張 -->
+  <rect x="300" y="370" width="600" height="80" fill="#FEF7ED" stroke="#F97316" stroke-width="3" rx="15"/>
+  <text x="600" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#EA580C">
+    ⚡ 關鍵選擇時刻
+  </text>
+  <text x="600" y="425" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#9A3412">
+    時間有限，但槓桿無限
+  </text>
+  <text x="600" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#9A3412">
+    選擇資產路徑，讓複利為你工作
+  </text>
+</svg>

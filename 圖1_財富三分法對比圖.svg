@@ -1,0 +1,127 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="1200" height="900" fill="#F8FAFC"/>
+  
+  <!-- 標題 -->
+  <text x="600" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#1E3A8A">
+    財富 vs 金錢 vs 地位：三者本質差異
+  </text>
+  
+  <!-- 副標題 -->
+  <text x="600" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#6B7280">
+    理解真正的財富創造目標
+  </text>
+  
+  <!-- 財富圓形 -->
+  <circle cx="250" cy="400" r="120" fill="#1E3A8A" stroke="#ffffff" stroke-width="4"/>
+  <text x="250" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">
+    財富
+  </text>
+  <text x="250" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="white">
+    WEALTH
+  </text>
+  
+  <!-- 財富內部圖示：齒輪表示系統運作 -->
+  <g transform="translate(250,420)">
+    <circle r="8" fill="white"/>
+    <circle r="6" fill="none" stroke="#1E3A8A" stroke-width="2"/>
+    <path d="M-4,-4 L4,4 M4,-4 L-4,4" stroke="#1E3A8A" stroke-width="2"/>
+  </g>
+  
+  <text x="250" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white">
+    24小時運作
+  </text>
+  
+  <!-- 金錢圓形 -->
+  <circle cx="600" cy="400" r="120" fill="#F59E0B" stroke="#ffffff" stroke-width="4"/>
+  <text x="600" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">
+    金錢
+  </text>
+  <text x="600" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="white">
+    MONEY
+  </text>
+  
+  <!-- 金錢內部圖示：箭頭表示轉移 -->
+  <g transform="translate(600,420)">
+    <path d="M-15,0 L15,0 M10,-5 L15,0 L10,5" stroke="white" stroke-width="3" fill="none"/>
+  </g>
+  
+  <text x="600" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white">
+    價值轉移
+  </text>
+  
+  <!-- 地位圓形 -->
+  <circle cx="950" cy="400" r="120" fill="#DC2626" stroke="#ffffff" stroke-width="4"/>
+  <text x="950" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">
+    地位
+  </text>
+  <text x="950" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="white">
+    STATUS
+  </text>
+  
+  <!-- 地位內部圖示：階梯表示排名 -->
+  <g transform="translate(950,420)">
+    <rect x="-15" y="5" width="10" height="5" fill="white"/>
+    <rect x="-5" y="0" width="10" height="10" fill="white"/>
+    <rect x="5" y="-5" width="10" height="15" fill="white"/>
+  </g>
+  
+  <text x="950" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white">
+    零和競爭
+  </text>
+  
+  <!-- 特性說明框 -->
+  <!-- 財富特性 -->
+  <rect x="150" y="580" width="200" height="120" fill="white" stroke="#1E3A8A" stroke-width="2" rx="10"/>
+  <text x="250" y="610" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1E3A8A">
+    睡覺時也賺錢的資產
+  </text>
+  <text x="250" y="635" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">
+    • 系統性運作
+  </text>
+  <text x="250" y="655" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">
+    • 持續性收入
+  </text>
+  <text x="250" y="675" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">
+    • 買到自由
+  </text>
+  
+  <!-- 金錢特性 -->
+  <rect x="500" y="580" width="200" height="120" fill="white" stroke="#F59E0B" stroke-width="2" rx="10"/>
+  <text x="600" y="610" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#F59E0B">
+    社會信用系統
+  </text>
+  <text x="600" y="635" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">
+    • 價值轉移工具
+  </text>
+  <text x="600" y="655" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">
+    • 過去貢獻IOU
+  </text>
+  <text x="600" y="675" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">
+    • 會被稀釋
+  </text>
+  
+  <!-- 地位特性 -->
+  <rect x="850" y="580" width="200" height="120" fill="white" stroke="#DC2626" stroke-width="2" rx="10"/>
+  <text x="950" y="610" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#DC2626">
+    社會階層排名
+  </text>
+  <text x="950" y="635" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">
+    • 相對位置
+  </text>
+  <text x="950" y="655" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">
+    • 零和遊戲
+  </text>
+  <text x="950" y="675" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">
+    • 必有輸家
+  </text>
+  
+  <!-- 核心主張 -->
+  <rect x="300" y="750" width="600" height="60" fill="#E0F2FE" stroke="#0EA5E9" stroke-width="2" rx="15"/>
+  <text x="600" y="775" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#0C4A6E">
+    💡 核心洞察
+  </text>
+  <text x="600" y="800" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#0C4A6E">
+    追求財富創造系統，而非金錢數量或社會地位
+  </text>
+</svg>
